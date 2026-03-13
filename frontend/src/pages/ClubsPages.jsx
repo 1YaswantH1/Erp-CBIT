@@ -4,6 +4,7 @@ import "../css/clubs.css";
 
 function ClubsPage() {
   const [clubs, setClubs] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   useEffect(() => {
     fetch("/data/clubs.csv")
@@ -18,26 +19,64 @@ function ClubsPage() {
       });
   }, []);
 
-  return (
-    <div className="clubs-container">
-      {clubs.map((club, index) => (
-        <div className="club-card" key={index}>
-          <a
-            href={club["mt-2 href"]}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="club-button"
-          >
-            <img
-              src={club["w-full src"]}
-              className="club-image"
-              alt={club["text-lg"]}
-            />
-          </a>
+  const categories = ["All", ...new Set(clubs.map((club) => club.category))];
 
-          <h2 className="club-title">{club["text-lg"]}</h2>
-        </div>
-      ))}
+  const toggleCategory = (category) => {
+    if (category === "All") {
+      setSelectedCategories([]);
+      return;
+    }
+
+    if (selectedCategories.includes(category)) {
+      setSelectedCategories(selectedCategories.filter((c) => c !== category));
+    } else {
+      setSelectedCategories([...selectedCategories, category]);
+    }
+  };
+
+  const filteredClubs =
+    selectedCategories.length === 0
+      ? clubs
+      : clubs.filter((club) => selectedCategories.includes(club.category));
+
+  return (
+    <div className="clubs-page">
+      {/* FILTER BUTTONS */}
+      <div className="club-filters">
+        {categories.map((cat, index) => (
+          <button
+            key={index}
+            className={`filter-btn ${
+              selectedCategories.includes(cat) ? "active" : ""
+            }`}
+            onClick={() => toggleCategory(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* CLUBS GRID */}
+      <div className="clubs-container">
+        {filteredClubs.map((club, index) => (
+          <div className="club-card" key={index}>
+            <a href={club.link} target="_blank" rel="noopener noreferrer">
+              <img src={club.image} className="club-image" alt={club.name} />
+            </a>
+
+            <h2 className="club-title">{club.name}</h2>
+
+            <a
+              href={club.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="club-button"
+            >
+              Visit
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
