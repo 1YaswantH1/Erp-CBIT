@@ -24,7 +24,7 @@ function Papers() {
 
   return (
     <div className="papers-container">
-      <h1 className="papers-heading">CBIT Question Papers</h1>
+      <h1 className="papers-heading">CBIT Previous Year Question Papers</h1>
 
       <div className="papers-grid">
         {papers.map((paper, index) => (
@@ -38,7 +38,7 @@ function Papers() {
             <div
               className="paper-image"
               style={{
-                backgroundImage: `url(${paper.image})`,
+                backgroundImage: `url(/books.png)`,
               }}
             ></div>
 

@@ -35,9 +35,11 @@
 }
 
 .paper-image {
-    height: 180px;
-    background-size: cover;
-    background-position: center;
+    height: 160px;
+        background-size: contain;
+        /* prevents zoom */
+        background-repeat: no-repeat;
+        background-position: center;
 }
 
 .paper-title {
