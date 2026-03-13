@@ -5,7 +5,7 @@ function Placements() {
   const [placements, setPlacements] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = import.meta.env.VITE_CBIT_CIRCULAR_URL;
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     fetch(`${API_URL}/placements`)

@@ -1,0 +1,51 @@
+.papers-container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.papers-heading {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.papers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.paper-card {
+    display: block;
+    text-decoration: none;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--card-bg);
+    color: var(--text-color);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.paper-card:hover {
+    transform: translateY(-6px);
+}
+
+.paper-image {
+    height: 170px;
+    background-size: cover;
+    background-position: center;
+}
+
+.paper-title {
+    padding: 18px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.papers-loading {
+    text-align: center;
+    font-size: 22px;
+    padding: 80px;
+}

@@ -37,18 +37,9 @@ function Navbar() {
           </li>
 
           {/* Clubs Dropdown */}
+
           <li>
-            <details>
-              <summary>Clubs</summary>
-              <ul className="p-2 bg-base-100 rounded-box w-48">
-                <li>
-                  <Link to="/clubs">Clubs</Link>
-                </li>
-                <li>
-                  <Link to="/recruitment">Club Recruitment</Link>
-                </li>
-              </ul>
-            </details>
+            <Link to="/clubs">Clubs</Link>
           </li>
 
           <li>
@@ -56,7 +47,7 @@ function Navbar() {
           </li>
 
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/papers">Papers</Link>
           </li>
         </ul>
       </div>
