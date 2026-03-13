@@ -1,0 +1,99 @@
+import { useState } from "react";
+import "../css/attendance.css";
+
+function Attendance() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [samePass, setSamePass] = useState(true);
+  const [attendance, setAttendance] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const finalPassword = samePass ? username : password;
+
+    setLoading(true);
+
+    try {
+      const res = await fetch(`${API_URL}/attendance`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          password: finalPassword,
+        }),
+      });
+
+      const data = await res.json();
+      setAttendance(data);
+    } catch (err) {
+      console.log(err);
+    }
+
+    setLoading(false);
+  };
+
+  return (
+    <div className="attendance-container">
+      <h2 className="attendance-title">CBIT Attendance</h2>
+
+      <form className="attendance-form" onSubmit={handleSubmit}>
+        <input
+          className="attendance-input"
+          type="text"
+          placeholder="ERP Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+
+        <label className="attendance-checkbox">
+          <input
+            type="checkbox"
+            checked={samePass}
+            onChange={() => setSamePass(!samePass)}
+          />
+          Username = Password
+        </label>
+
+        {!samePass && (
+          <input
+            className="attendance-input"
+            type="password"
+            placeholder="ERP Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        )}
+
+        <button className="attendance-button" type="submit">
+          Get Attendance
+        </button>
+      </form>
+
+      {loading && <p>Loading...</p>}
+
+      {attendance.length > 0 && (
+        <table className="attendance-table">
+          <tbody>
+            {attendance.map((row, i) => (
+              <tr key={i}>
+                {row.map((col, j) => (
+                  <td key={j}>{col}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+}
+
+export default Attendance;

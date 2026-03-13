@@ -4,6 +4,7 @@ import ClubsPage from "./pages/ClubsPages";
 import Holidays from "./pages/Holidays";
 import Placements from "./pages/Placements";
 import Papers from "./pages/Papers";
+import Attendance from "./pages/Attendance";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/clubs" element={<ClubsPage />} />
         <Route path="/placements" element={<Placements />} />
         <Route path="/papers" element={<Papers />} />
+        <Route path="/attendance" element={<Attendance />} />
       </Routes>
     </BrowserRouter>
   );

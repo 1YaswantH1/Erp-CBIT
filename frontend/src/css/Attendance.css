@@ -1,0 +1,45 @@
+.attendance-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+}
+
+.attendance-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.attendance-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.attendance-input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.attendance-checkbox {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.attendance-button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.attendance-table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attendance-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
