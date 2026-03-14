@@ -27,11 +27,8 @@
     overflow: hidden;
     background: var(--card-bg);
     color: var(--text-color);
-
     border: 2px solid #e5e7eb;
-    /* border added */
     box-shadow: 0 6px 18px var(--card-shadow);
-
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
