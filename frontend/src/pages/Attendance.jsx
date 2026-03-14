@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/attendance.css";
+import "../css/Attendance.css";
 
 function Attendance() {
   const [username, setUsername] = useState("");
@@ -7,6 +7,7 @@ function Attendance() {
   const [samePass, setSamePass] = useState(true);
   const [attendance, setAttendance] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [studentName, setStudentName] = useState("");
 
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -30,7 +31,9 @@ function Attendance() {
       });
 
       const data = await res.json();
-      setAttendance(data);
+
+      setStudentName(data.studentName);
+      setAttendance(data.attendance);
     } catch (err) {
       console.log(err);
     }
@@ -78,6 +81,8 @@ function Attendance() {
       </form>
 
       {loading && <p>Loading...</p>}
+
+      {studentName && <p className="attendance-student">{studentName}</p>}
 
       {attendance.length > 0 && (
         <table className="attendance-table">

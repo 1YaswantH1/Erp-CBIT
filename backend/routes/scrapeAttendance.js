@@ -5,7 +5,7 @@ async function scrapeAttendance(username, password) {
   const options = new chrome.Options();
 
   options.addArguments(
-    "--headless=new", // run without UI
+    "--headless=new",
     "--disable-gpu",
     "--no-sandbox",
     "--disable-dev-shm-usage",
@@ -22,24 +22,20 @@ async function scrapeAttendance(username, password) {
 
     const wait = driver.wait.bind(driver);
 
-    // username
     const usernameField = await wait(
       until.elementLocated(By.id("txtUserName")),
       10000,
     );
 
     await usernameField.sendKeys(username);
-
     await driver.findElement(By.id("btnNext")).click();
 
-    // password
     const passwordField = await wait(
       until.elementLocated(By.id("txtPassword")),
       10000,
     );
 
     await passwordField.sendKeys(password);
-
     await driver.findElement(By.id("btnSubmit")).click();
 
     // dashboard
@@ -49,6 +45,14 @@ async function scrapeAttendance(username, password) {
     );
 
     await dashboard.click();
+
+    // ⭐ GET STUDENT NAME
+    const nameElement = await wait(
+      until.elementLocated(By.id("ctl00_cpHeader_ucStud_lblStudentName")),
+      10000,
+    );
+
+    const studentName = await nameElement.getText();
 
     const table = await wait(
       until.elementLocated(By.id("ctl00_cpStud_grdSubject")),
@@ -70,7 +74,11 @@ async function scrapeAttendance(username, password) {
       if (data.length > 0) attendance.push(data);
     }
 
-    return attendance;
+    // return both
+    return {
+      studentName,
+      attendance,
+    };
   } finally {
     await driver.quit();
   }

@@ -8,7 +8,6 @@ router.post("/attendance", async (req, res) => {
 
   try {
     const data = await scrapeAttendance(username, password);
-
     res.json(data);
   } catch (error) {
     console.log(error);
