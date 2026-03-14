@@ -413,8 +413,8 @@ export default function Attendance() {
                   <th>Attendance</th>
                   <th>Status</th>
                   <th>Target</th>
-                  <th>Need</th>
-                  <th>Bunks</th>
+                  <th>To Attend</th>
+                  <th>Can Miss</th>
                 </tr>
               </thead>
               <tbody>
