@@ -140,5 +140,81 @@
     to {
         opacity: 1;
         transform: translateY(0);
-    }
+    }}
+.attendance-summary {
+
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+
+.summary-card {
+
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    width: 200px;
+    font-weight: 500;
+
+}
+
+.summary-card h3 {
+
+    font-size: 30px;
+    margin-top: 6px;
+
+}
+
+.clickable {
+
+    cursor: pointer;
+    transition: 0.25s;
+
+}
+
+.clickable:hover {
+
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+
+}
+
+.optimal-card {
+
+    margin-top: 25px;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+
+}
+
+.optimal-card ul {
+
+    margin-top: 10px;
+    padding-left: 20px;
+
+}
+
+.optimal-card li {
+
+    margin-bottom: 8px;
+    font-size: 15px;
+
+}
+
+.attendance-graph {
+
+    margin-top: 40px;
+
+}
+
+.attendance-planner {
+
+    margin-top: 40px;
+
 }
