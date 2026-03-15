@@ -2,6 +2,9 @@
 
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
+
+const PORT = process.env.PORT || 5000;
 
 // const attendanceRoute = require("./routes/attendance");
 const placementsRoute = require("./routes/placements");
@@ -21,6 +24,6 @@ app.use("/placements", placementsRoute);
 
 // app.use("/attendance", attendanceRoute);
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.listen(PORT, () => {
+  console.log(`Server running on ${PORT}`);
 });
