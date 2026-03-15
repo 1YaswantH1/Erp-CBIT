@@ -6,6 +6,7 @@ import Holidays from "./pages/Holidays";
 import Placements from "./pages/Placements";
 import Papers from "./pages/Papers";
 import Attendance from "./pages/Attendance";
+import Syllabus from "./pages/Syllabus";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/placements" element={<Placements />} />
         <Route path="/papers" element={<Papers />} />
         <Route path="/attendance" element={<Attendance />} />
+        <Route path="/syllabus" element={<Syllabus />} />
       </Routes>
     </BrowserRouter>
   );

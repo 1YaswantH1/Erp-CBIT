@@ -1,0 +1,45 @@
+.syllabus-page {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+}
+
+.syllabus-title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dropdown-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.syllabus-dropdown {
+    padding: 10px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.syllabus-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.syllabus-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.syllabus-table tr:hover {
+    background: #f5f5f5;
+}
+
+.syllabus-table a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.syllabus-table a:hover {
+    text-decoration: underline;
+}
