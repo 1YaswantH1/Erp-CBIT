@@ -1,45 +1,88 @@
-.syllabus-page {
+.syllabus-container {
     max-width: 1100px;
     margin: auto;
     padding: 30px;
+    background-color: #f0f2f5;
+    min-height: 100vh;
 }
 
 .syllabus-title {
-    font-size: 30px;
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #000;
 }
 
-.dropdown-container {
-    text-align: center;
+.filters {
+    display: flex;
+    gap: 15px;
     margin-bottom: 25px;
 }
 
-.syllabus-dropdown {
-    padding: 10px 16px;
-    font-size: 16px;
-    border-radius: 8px;
+.filters select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    outline: none;
+}
+
+.filters select:focus {
+    border-color: #555;
 }
 
 .syllabus-table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.syllabus-table thead tr {
+    background-color: #0d0d0d;
+    color: #fff;
+}
+
+.syllabus-table th {
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border: none;
 }
 
 .syllabus-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    padding: 14px 20px;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    color: #111;
+    font-size: 14px;
+    vertical-align: middle;
 }
 
-.syllabus-table tr:hover {
-    background: #f5f5f5;
+.syllabus-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.syllabus-table tbody tr:hover {
+    background-color: #f7f8fa;
+    transition: background-color 0.15s ease;
 }
 
 .syllabus-table a {
-    color: #2563eb;
+    color: #111;
     text-decoration: none;
+    font-weight: 600;
 }
 
 .syllabus-table a:hover {
     text-decoration: underline;
+    color: #000;
 }
